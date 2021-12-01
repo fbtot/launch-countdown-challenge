@@ -13,9 +13,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- ICONS -->
+    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello world!</h1>
+    <main class="container">
+      <h1 class="title">We're Launching Soon</h1>
+
+      <!-- ============================================ -->
+      <!-- ··········································· § COUNTDOWN ··· -->
+      <!-- ======================================== -->
+      <div class="countdown">
+        <!-- =================================== § DAYS === -->
+        <div class="countdown__days">
+          <div class="countdown_current">
+            <div class="flip" data-current-number="0" data-next-number="1">0</div>
+            <div class="flip" data-current-number="0" data-next-number="1">0</div>
+          </div>
+
+          <div class="countdown_current">
+            <div class="flip" data-current-number="0" data-next-number="1">0</div>
+            <div class="flip" data-current-number="0" data-next-number="1">0</div>
+          </div>
+        </div>
+        <span>Days</span>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- ··········································· § FOOTER ··· -->
+      <!-- ======================================== -->
+      <footer class="footer">
+        <nav class="footer__social">
+          <li>
+            <a href="#"><box-icon type="logo" name="facebook-square"></box-icon></a>
+          </li>
+          <li>
+            <a href="#"><box-icon name="pinterest" type="logo"></box-icon></a>
+          </li>
+          <li>
+            <a href="#"><box-icon name="instagram" type="logo"></box-icon></a>
+          </li>
+        </nav>
+      </footer>
+    </main>
   </body>
 </html>
