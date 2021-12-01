@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  @include antialias;
   min-width: 100vw;
   min-height: 100vh;
   line-height: 1.6em;
@@ -19,8 +20,8 @@ body {
   color: var(--text-color);
   // prettier-ignore
   background: 
-    url(../../images/pattern-hills.svg) center bottom repeat-x ,
-    url(../../images/bg-stars.svg) 0 0,
+    url(../images/pattern-hills.svg) center bottom repeat-x ,
+    url(../images/bg-stars.svg) 0 0,
     linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
   background-size: contain, auto, auto;
 
@@ -51,8 +52,17 @@ h6 {
 }
 
 h1 {
-  font-size: var(--h1-font-size);
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 0.39em;
+  font-size: 1.5rem;
+  font-weight: normal;
   line-height: 1.2em;
+
+  @include mq($desktop-width, down) {
+    font-size: 1.3rem;
+    letter-spacing: 0.35em;
+  }
 }
 
 h2 {

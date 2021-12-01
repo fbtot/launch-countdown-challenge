@@ -19,25 +19,31 @@
 }
 
 @mixin mq($width1, $width2, $minus-one: true) {
-  /* mixin mq */
   @if $width2 == "up" {
     @media screen and (min-width: $width1) {
+      /* mixin mq */
       @content;
+      /* end mixin mq */
     }
   } @else if $width2 == "down" {
     @media screen and (max-width: minus-one($width1, $minus-one)) {
+      /* mixin mq */
       @content;
+      /* end mixin mq */
     }
   } @else if $width1 > $width2 {
     @media screen and (min-width: $width2) and (max-width: minus-one($width1, $minus-one)) {
+      /* mixin mq */
       @content;
+      /* end mixin mq */
     }
   } @else if $width1 < $width2 {
     @media screen and (min-width: $width1) and (max-width: minus-one($width2, $minus-one)) {
+      /* mixin mq */
       @content;
+      /* end mixin mq */
     }
   }
-  /* end mixin mq */
 }
 
 // ========================== § EXCEPT FIRST ONE ===

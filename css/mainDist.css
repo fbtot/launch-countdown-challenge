@@ -1,6 +1,6 @@
 @charset "UTF-8";
 :root {
-  --text-color: hsl(0, 0%, 7%);
+  --text-color: var(--dark-desaturated-blue);
   --accent-color: hsl(216, 61%, 54%);
   --grey300: hsl(0, 0%, 70%);
   --grey500: hsl(0, 0%, 50%);
@@ -35,19 +35,23 @@ html {
 }
 
 body {
+  /* @mixin antialias */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* end @mixin antialias */
   min-width: 100vw;
   min-height: 100vh;
   line-height: 1.6em;
   font-family: var(--body-font-family);
   color: var(--text-color);
-  background: url(../../images/pattern-hills.svg) center bottom repeat-x, url(../../images/bg-stars.svg) 0 0, linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
+  background: url(../images/pattern-hills.svg) center bottom repeat-x, url(../images/bg-stars.svg) 0 0, linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
   background-size: contain, auto, auto;
-  /* mixin mq */
-  /* end mixin mq */
 }
 @media screen and (max-width: 1459px) {
   body {
+    /* mixin mq */
     background-size: 1460px, auto, auto;
+    /* end mixin mq */
   }
 }
 
@@ -73,8 +77,20 @@ h6 {
 }
 
 h1 {
-  font-size: var(--h1-font-size);
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 0.39em;
+  font-size: 1.5rem;
+  font-weight: normal;
   line-height: 1.2em;
+}
+@media screen and (max-width: 799px) {
+  h1 {
+    /* mixin mq */
+    font-size: 1.3rem;
+    letter-spacing: 0.35em;
+    /* end mixin mq */
+  }
 }
 
 h2 {
