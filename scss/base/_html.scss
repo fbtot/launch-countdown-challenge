@@ -25,7 +25,7 @@ body {
     linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
   background-size: contain, auto, auto;
 
-  @include mq(1460px, down) {
+  @include mq($desktop-width, down) {
     background-position: right -150px bottom;
     background-size: 1460px, auto, auto;
   }
