@@ -17,7 +17,16 @@ body {
   line-height: 1.6em;
   font-family: var(--body-font-family);
   color: var(--text-color);
-  background-color: rgb(238, 238, 238);
+  // prettier-ignore
+  background: 
+    url(../../images/pattern-hills.svg) center bottom repeat-x ,
+    url(../../images/bg-stars.svg) 0 0,
+    linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
+  background-size: contain, auto, auto;
+
+  @include mq(1460px, down) {
+    background-size: 1460px, auto, auto;
+  }
 }
 
 /* ========================== § TYPOGRAPHY === */
