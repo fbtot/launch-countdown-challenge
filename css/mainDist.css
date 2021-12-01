@@ -23,6 +23,14 @@
   --h6-font-size: 1rem;
 }
 
+.footer__social__list,
+.footer__social__list li {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -184,6 +192,45 @@ select {
 button,
 input[type=submit] {
   cursor: pointer;
+}
+
+/* ============================================ */
+/* ··········································· § LAYOUT ··· */
+/* ======================================== */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  max-width: 690px;
+  min-height: 100vh;
+  margin: auto auto;
+}
+
+.title {
+  margin-top: 9.7rem;
+  margin-bottom: 7.6rem;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.footer__social__list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 5rem;
+  width: 10rem;
+}
+
+.footer__social__icon {
+  display: block;
+  font-size: 2rem;
+  color: var(--grayish-blue);
+  transition: 0.3s;
+}
+.footer__social__icon:hover {
+  color: var(--soft-red);
 }
 
 /*# sourceMappingURL=mainDist.css.map */

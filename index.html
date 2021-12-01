@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="./css/mainDist.css" />
 
     <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
 
     <!-- ICONS -->
-    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -28,12 +28,12 @@
       <div class="countdown">
         <!-- =================================== § DAYS === -->
         <div class="countdown__days">
-          <div class="countdown_current">
+          <div class="countdown__current">
             <div class="flip" data-current-number="0" data-next-number="1">0</div>
             <div class="flip" data-current-number="0" data-next-number="1">0</div>
           </div>
 
-          <div class="countdown_current">
+          <div class="countdown__next">
             <div class="flip" data-current-number="0" data-next-number="1">0</div>
             <div class="flip" data-current-number="0" data-next-number="1">0</div>
           </div>
@@ -46,15 +46,17 @@
       <!-- ======================================== -->
       <footer class="footer">
         <nav class="footer__social">
-          <li>
-            <a href="#"><box-icon type="logo" name="facebook-square"></box-icon></a>
-          </li>
-          <li>
-            <a href="#"><box-icon name="pinterest" type="logo"></box-icon></a>
-          </li>
-          <li>
-            <a href="#"><box-icon name="instagram" type="logo"></box-icon></a>
-          </li>
+          <ul class="footer__social__list">
+            <li>
+              <a class="footer__social__icon" href="#"><i class='bx bxl-facebook-square'></i></box-icon></a>
+            </li>
+            <li>
+              <a class="footer__social__icon" href="#"><i class='bx bxl-pinterest'></i></box-icon></a>
+            </li>
+            <li>
+              <a class="footer__social__icon" href="#"><i class='bx bxl-instagram'></i></box-icon></a>
+            </li>
+          </ul>
         </nav>
       </footer>
     </main>
