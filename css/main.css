@@ -50,6 +50,7 @@ body {
 @media screen and (max-width: 1459px) {
   body {
     /* mixin mq */
+    background-position: right -150px bottom;
     background-size: 1460px, auto, auto;
     /* end mixin mq */
   }

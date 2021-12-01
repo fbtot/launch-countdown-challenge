@@ -26,6 +26,7 @@ body {
   background-size: contain, auto, auto;
 
   @include mq(1460px, down) {
+    background-position: right -150px bottom;
     background-size: 1460px, auto, auto;
   }
 }
