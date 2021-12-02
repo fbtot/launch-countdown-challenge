@@ -198,3 +198,85 @@ input[type="submit"] {
     color: var(--soft-red);
   }
 }
+
+/* ============================================ */
+/* ··········································· § COUNTDOWN ··· */
+/* ======================================== */
+:root {
+  --animation-duration: 0.5s;
+}
+@keyframes flip {
+  to {
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes change-number {
+  to {
+    content: attr(data-next-day);
+    transform: rotateX(-180deg);
+  }
+}
+
+.countdown {
+  display: grid;
+  gap: 2.4rem;
+  grid-template-columns: repeat(4, 1fr);
+  color: var(--soft-red);
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+.countdown__double-flip-container {
+  height: 8rem;
+  transform-style: preserve-3d;
+}
+
+.flip {
+  position: relative;
+  background: darkblue;
+  height: 4rem;
+  overflow: hidden;
+  transform-origin: 100% 100%;
+
+  &:hover {
+    animation: flip var(--animation-duration) linear forwards;
+
+    &:before {
+      animation: change-number 0.01s linear forwards;
+      animation-delay: calc(var(--animation-duration) / 2);
+    }
+  }
+
+  &:before,
+  &:after {
+    // background: rgba(0, 255, 0, 0.4);
+    font-size: 4rem;
+    line-height: 4rem;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+  }
+
+  &:before {
+    content: attr(data-current-day);
+  }
+
+  &:after {
+    display: none;
+    content: attr(data-next-day);
+  }
+}
+
+.flip.flipped {
+  top: -4rem;
+  transform: rotateX(-180deg);
+  &:before,
+  &:after {
+    // line-height: 1em;
+
+    transform: rotateX(180deg);
+  }
+}
