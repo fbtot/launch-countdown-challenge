@@ -227,7 +227,7 @@ input[type="submit"] {
   perspective-origin: center center;
 }
 
-.countdown__double-flip-container {
+.countdown__flip-container {
   height: 8rem;
   transform-style: preserve-3d;
 }
@@ -266,5 +266,11 @@ input[type="submit"] {
   &:before {
     animation: change-number 0.01s linear;
     animation-delay: calc(var(--animation-duration) / 2);
+  }
+}
+
+.countdown__bg-flip__bottom {
+  &:before {
+    bottom: 2rem;
   }
 }
