@@ -239,18 +239,8 @@ input[type="submit"] {
   overflow: hidden;
   transform-origin: 100% 100%;
 
-  &:hover {
-    animation: flip var(--animation-duration) linear forwards;
-
-    &:before {
-      animation: change-number 0.01s linear forwards;
-      animation-delay: calc(var(--animation-duration) / 2);
-    }
-  }
-
   &:before,
   &:after {
-    // background: rgba(0, 255, 0, 0.4);
     font-size: 4rem;
     line-height: 4rem;
     height: 100%;
@@ -271,12 +261,10 @@ input[type="submit"] {
 }
 
 .flip.flipped {
-  top: -4rem;
-  transform: rotateX(-180deg);
-  &:before,
-  &:after {
-    // line-height: 1em;
+  animation: flip var(--animation-duration) linear;
 
-    transform: rotateX(180deg);
+  &:before {
+    animation: change-number 0.01s linear;
+    animation-delay: calc(var(--animation-duration) / 2);
   }
 }

@@ -272,13 +272,6 @@ input[type=submit] {
   overflow: hidden;
   transform-origin: 100% 100%;
 }
-.flip:hover {
-  animation: flip var(--animation-duration) linear forwards;
-}
-.flip:hover:before {
-  animation: change-number 0.01s linear forwards;
-  animation-delay: calc(var(--animation-duration) / 2);
-}
 .flip:before, .flip:after {
   font-size: 4rem;
   line-height: 4rem;
@@ -297,11 +290,11 @@ input[type=submit] {
 }
 
 .flip.flipped {
-  top: -4rem;
-  transform: rotateX(-180deg);
+  animation: flip var(--animation-duration) linear;
 }
-.flip.flipped:before, .flip.flipped:after {
-  transform: rotateX(180deg);
+.flip.flipped:before {
+  animation: change-number 0.01s linear;
+  animation-delay: calc(var(--animation-duration) / 2);
 }
 
 /*# sourceMappingURL=main.css.map */

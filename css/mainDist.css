@@ -284,16 +284,6 @@ input[type=submit] {
   overflow: hidden;
   transform-origin: 100% 100%;
 }
-.flip:hover {
-  -webkit-animation: flip var(--animation-duration) linear forwards;
-          animation: flip var(--animation-duration) linear forwards;
-}
-.flip:hover:before {
-  -webkit-animation: change-number 0.01s linear forwards;
-          animation: change-number 0.01s linear forwards;
-  -webkit-animation-delay: calc(var(--animation-duration) / 2);
-          animation-delay: calc(var(--animation-duration) / 2);
-}
 .flip:before, .flip:after {
   font-size: 4rem;
   line-height: 4rem;
@@ -312,11 +302,14 @@ input[type=submit] {
 }
 
 .flip.flipped {
-  top: -4rem;
-  transform: rotateX(-180deg);
+  -webkit-animation: flip var(--animation-duration) linear;
+          animation: flip var(--animation-duration) linear;
 }
-.flip.flipped:before, .flip.flipped:after {
-  transform: rotateX(180deg);
+.flip.flipped:before {
+  -webkit-animation: change-number 0.01s linear;
+          animation: change-number 0.01s linear;
+  -webkit-animation-delay: calc(var(--animation-duration) / 2);
+          animation-delay: calc(var(--animation-duration) / 2);
 }
 
 /*# sourceMappingURL=mainDist.css.map */
