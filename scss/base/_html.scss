@@ -228,8 +228,18 @@ input[type="submit"] {
 }
 
 .countdown__flip-container {
+  position: relative;
   height: 8rem;
   transform-style: preserve-3d;
+}
+
+.countdown__bg-flips-container,
+.countdown__fg-flips-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .flip {
