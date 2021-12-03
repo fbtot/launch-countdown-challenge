@@ -231,6 +231,17 @@ input[type="submit"] {
   position: relative;
   height: 8rem;
   transform-style: preserve-3d;
+
+  &.flipped {
+    .countdown__fg-flip {
+      animation: flip var(--animation-duration) linear;
+
+      &:before {
+        animation: change-number 0.01s linear;
+        animation-delay: calc(var(--animation-duration) / 2);
+      }
+    }
+  }
 }
 
 .countdown__bg-flips-container,
@@ -267,15 +278,6 @@ input[type="submit"] {
   &:after {
     display: none;
     content: attr(data-next-day);
-  }
-}
-
-.flip.flipped {
-  animation: flip var(--animation-duration) linear;
-
-  &:before {
-    animation: change-number 0.01s linear;
-    animation-delay: calc(var(--animation-duration) / 2);
   }
 }
 

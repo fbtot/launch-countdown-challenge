@@ -265,6 +265,13 @@ input[type=submit] {
   height: 8rem;
   transform-style: preserve-3d;
 }
+.countdown__flip-container.flipped .countdown__fg-flip {
+  animation: flip var(--animation-duration) linear;
+}
+.countdown__flip-container.flipped .countdown__fg-flip:before {
+  animation: change-number 0.01s linear;
+  animation-delay: calc(var(--animation-duration) / 2);
+}
 
 .countdown__bg-flips-container,
 .countdown__fg-flips-container {
@@ -297,14 +304,6 @@ input[type=submit] {
 .flip:after {
   display: none;
   content: attr(data-next-day);
-}
-
-.flip.flipped {
-  animation: flip var(--animation-duration) linear;
-}
-.flip.flipped:before {
-  animation: change-number 0.01s linear;
-  animation-delay: calc(var(--animation-duration) / 2);
 }
 
 .countdown__bg-flip__bottom:before {
