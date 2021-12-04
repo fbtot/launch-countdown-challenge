@@ -223,7 +223,7 @@ input[type="submit"] {
   gap: 2.4rem;
   grid-template-columns: repeat(4, 1fr);
   color: var(--soft-red);
-  perspective: 1000px;
+  perspective: 500px;
   perspective-origin: center center;
 }
 
@@ -231,26 +231,6 @@ input[type="submit"] {
   position: relative;
   height: 8rem;
   transform-style: preserve-3d;
-
-  &.flipped {
-    .countdown__fg-flip {
-      animation: flip var(--animation-duration) linear;
-
-      &:before {
-        animation: change-number 0.01s linear;
-        animation-delay: calc(var(--animation-duration) / 2);
-      }
-    }
-  }
-}
-
-.countdown__bg-flips-container,
-.countdown__fg-flips-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .flip {
@@ -281,8 +261,66 @@ input[type="submit"] {
   }
 }
 
+.countdown__bg-flips-container,
+.countdown__fg-flips-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.countdown__fg-flips-container {
+  height: 50%;
+  transform-style: preserve-3d;
+  transform-origin: bottom center;
+  // transform: rotateX(-150deg);
+
+  &.flipped {
+    animation: flip 3s linear;
+  }
+}
+
+.countdown__fg-flip__front,
+.countdown__fg-flip__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  // opacity: 50%;
+  transform-origin: center center;
+}
+
+.countdown__fg-flip__front {
+  background: lightblue;
+  backface-visibility: hidden;
+
+  &:before {
+    content: attr(data-current-day);
+  }
+}
+
+.countdown__fg-flip__back {
+  background: green;
+  transform: rotateX(180deg);
+  // backface-visibility: hidden;
+
+  &:before {
+    content: attr(data-next-day);
+    bottom: 2rem;
+  }
+}
+
+.countdown__bg-flip__top {
+  &:before {
+    content: attr(data-next-day);
+  }
+}
+
 .countdown__bg-flip__bottom {
   &:before {
+    content: attr(data-current-day);
     bottom: 2rem;
   }
 }

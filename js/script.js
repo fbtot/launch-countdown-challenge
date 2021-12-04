@@ -23,9 +23,8 @@ function changeAttribute(element, attribute, change) {
   const selectedElements = element.querySelectorAll(`[${attribute}]`);
   Array.from(selectedElements).forEach((el) => {
     if (el.getAttribute(attribute) !== addZero(change)) {
-      console.log(el.getAttribute(attribute));
-      el.setAttribute(attribute, change);
       element.classList.add('flipped');
+      setTimeout(() => el.setAttribute(attribute, change), 250);
       setTimeout(() => { element.classList.remove('flipped'); }, 500);
     }
   });
@@ -53,8 +52,9 @@ function countdown() {
   const gapSecondsNext = Math.floor(((rawGap - second) % minute) / second);
 
   changeAttribute(containerDaysEl, 'data-current-day', addZero(gapSeconds));
+  changeAttribute(containerDaysEl, 'data-next-day', addZero(gapSecondsNext));
 }
 
 countdown();
 
-setInterval(countdown, second);
+// setInterval(countdown, second);
