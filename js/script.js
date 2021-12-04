@@ -10,6 +10,30 @@ const day = 24 * hour;
 const deadline = new Date('December 8, 2021 00:00:00');
 
 /* =================================== § DOM === */
+const countdownEl = document.getElementById('countdown');
+const containerDaysEl = document.getElementById('containerDays');
+
+/* =================================== § SUPPORT FUNCTIONS === */
+// function changeAttribute(element, attribute, change) {
+//   const selectedElements = element.querySelectorAll(`[${attribute}]`);
+//   Array.from(selectedElements).forEach((el) => el.setAttribute(attribute, change));
+// }
+
+function changeAttribute(element, attribute, change) {
+  const selectedElements = element.querySelectorAll(`[${attribute}]`);
+  Array.from(selectedElements).forEach((el) => {
+    if (el.getAttribute(attribute) !== addZero(change)) {
+      console.log(el.getAttribute(attribute));
+      el.setAttribute(attribute, change);
+      element.classList.add('flipped');
+      setTimeout(() => { element.classList.remove('flipped'); }, 500);
+    }
+  });
+}
+
+function addZero(n) {
+  return n.toString().length === 1 ? `0${n}` : n.toString();
+}
 
 /* =================================== § COUNTDOWN FUNCTION === */
 function countdown() {
@@ -27,8 +51,10 @@ function countdown() {
   const gapHoursNext = Math.floor(((rawGap - hour) % day) / (hour));
   const gapMinutesNext = Math.floor(((rawGap - minute) % hour) / minute);
   const gapSecondsNext = Math.floor(((rawGap - second) % minute) / second);
+
+  changeAttribute(containerDaysEl, 'data-current-day', addZero(gapSeconds));
 }
 
 countdown();
 
-// setInterval(countdown, second);
+setInterval(countdown, second);
