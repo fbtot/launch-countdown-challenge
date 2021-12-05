@@ -237,7 +237,7 @@ input[type=submit] {
 /* ··········································· § COUNTDOWN ··· */
 /* ======================================== */
 :root {
-  --animation-duration: 0.5s;
+  --animation-duration: 0.3s;
 }
 
 @-webkit-keyframes flip {
@@ -248,18 +248,6 @@ input[type=submit] {
 
 @keyframes flip {
   to {
-    transform: rotateX(-180deg);
-  }
-}
-@-webkit-keyframes change-number {
-  to {
-    content: attr(data-next-day);
-    transform: rotateX(-180deg);
-  }
-}
-@keyframes change-number {
-  to {
-    content: attr(data-next-day);
     transform: rotateX(-180deg);
   }
 }
@@ -280,10 +268,10 @@ input[type=submit] {
 
 .flip {
   position: relative;
-  background: darkblue;
   height: 4rem;
   overflow: hidden;
   transform-origin: 100% 100%;
+  background: var(--dark-desaturated-blue);
 }
 .flip:before, .flip:after {
   font-size: 4rem;
@@ -317,8 +305,8 @@ input[type=submit] {
   transform-origin: bottom center;
 }
 .countdown__fg-flips-container.flipped {
-  -webkit-animation: flip 0.3s linear;
-          animation: flip 0.3s linear;
+  -webkit-animation: flip var(--animation-duration) linear;
+          animation: flip var(--animation-duration) linear;
 }
 
 .countdown__fg-flip__front,
@@ -332,7 +320,6 @@ input[type=submit] {
 }
 
 .countdown__fg-flip__front {
-  background: lightblue;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
@@ -341,7 +328,6 @@ input[type=submit] {
 }
 
 .countdown__fg-flip__back {
-  background: green;
   transform: rotateX(180deg);
 }
 .countdown__fg-flip__back:before {

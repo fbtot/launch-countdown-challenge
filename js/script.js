@@ -5,6 +5,7 @@ const second = 1000;
 const minute = 60 * second;
 const hour = 60 * minute;
 const day = 24 * hour;
+const animationDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--animation-duration')) * 1000;
 
 /* =================================== § PROJECT TIME VARS === */
 const deadline = new Date('December 8, 2021 00:00:00');
@@ -28,8 +29,8 @@ function changeAttribute(element, attribute, change) {
       movingPart.classList.add('flipped');
       setTimeout(() => {
         el.setAttribute(attribute, change);
-      }, 300);
-      setTimeout(() => { movingPart.classList.remove('flipped'); }, 300);
+      }, animationDuration);
+      setTimeout(() => { movingPart.classList.remove('flipped'); }, animationDuration);
     }
   });
 }
@@ -61,4 +62,4 @@ function countdown() {
 
 countdown();
 
-// setInterval(countdown, second);
+setInterval(countdown, second);
