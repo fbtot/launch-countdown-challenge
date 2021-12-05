@@ -373,3 +373,53 @@ input[type="submit"] {
     bottom: var(--flip-text-offset);
   }
 }
+
+.countdown-notch {
+  --notch-width: 7px;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    background: #17171d;
+    width: var(--notch-width);
+    height: var(--notch-width);
+  }
+
+  &:before {
+    left: 0;
+
+    .countdown__fg-flip__front &,
+    .countdown__bg-flip__top & {
+      border-radius: 0 var(--notch-width) 0 0;
+      bottom: 0;
+    }
+
+    .countdown__bg-flip__bottom &,
+    .countdown__fg-flip__back & {
+      border-radius: 0 0 var(--notch-width) 0;
+    }
+  }
+
+  &:after {
+    right: 0;
+    .countdown__fg-flip__front &,
+    .countdown__bg-flip__top & {
+      border-radius: var(--notch-width) 0 0 0;
+      bottom: 0;
+    }
+    .countdown__bg-flip__bottom &,
+    .countdown__fg-flip__back & {
+      border-radius: 0 0 0 var(--notch-width);
+    }
+  }
+}
+
+.countdown__flip-container__timeframe-text {
+  bottom: -3.3rem;
+  transform: translateX(-50%);
+  position: absolute;
+  color: var(--grayish-blue);
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+}

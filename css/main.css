@@ -390,4 +390,45 @@ input[type=submit] {
   bottom: var(--flip-text-offset);
 }
 
+.countdown-notch {
+  --notch-width: 7px;
+}
+.countdown-notch:before, .countdown-notch:after {
+  content: "";
+  position: absolute;
+  background: #17171d;
+  width: var(--notch-width);
+  height: var(--notch-width);
+}
+.countdown-notch:before {
+  left: 0;
+}
+.countdown__fg-flip__front .countdown-notch:before, .countdown__bg-flip__top .countdown-notch:before {
+  border-radius: 0 var(--notch-width) 0 0;
+  bottom: 0;
+}
+.countdown__bg-flip__bottom .countdown-notch:before, .countdown__fg-flip__back .countdown-notch:before {
+  border-radius: 0 0 var(--notch-width) 0;
+}
+.countdown-notch:after {
+  right: 0;
+}
+.countdown__fg-flip__front .countdown-notch:after, .countdown__bg-flip__top .countdown-notch:after {
+  border-radius: var(--notch-width) 0 0 0;
+  bottom: 0;
+}
+.countdown__bg-flip__bottom .countdown-notch:after, .countdown__fg-flip__back .countdown-notch:after {
+  border-radius: 0 0 0 var(--notch-width);
+}
+
+.countdown__flip-container__timeframe-text {
+  bottom: -3.3rem;
+  transform: translateX(-50%);
+  position: absolute;
+  color: var(--grayish-blue);
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+}
+
 /*# sourceMappingURL=main.css.map */
