@@ -305,7 +305,7 @@ input[type=submit] {
   transform-origin: bottom center;
 }
 .countdown__fg-flips-container.flipped {
-  animation: flip 3s linear;
+  animation: flip 0.3s linear;
 }
 
 .countdown__fg-flip__front,

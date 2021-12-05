@@ -277,7 +277,7 @@ input[type="submit"] {
   // transform: rotateX(-150deg);
 
   &.flipped {
-    animation: flip 3s linear;
+    animation: flip 0.3s linear;
   }
 }
 

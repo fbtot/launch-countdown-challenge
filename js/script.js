@@ -21,11 +21,15 @@ const containerDaysEl = document.getElementById('containerDays');
 
 function changeAttribute(element, attribute, change) {
   const selectedElements = element.querySelectorAll(`[${attribute}]`);
+  const movingPart = element.getElementsByClassName('countdown__fg-flips-container')[0];
+
   Array.from(selectedElements).forEach((el) => {
     if (el.getAttribute(attribute) !== addZero(change)) {
-      element.classList.add('flipped');
-      setTimeout(() => el.setAttribute(attribute, change), 250);
-      setTimeout(() => { element.classList.remove('flipped'); }, 500);
+      movingPart.classList.add('flipped');
+      setTimeout(() => {
+        el.setAttribute(attribute, change);
+      }, 300);
+      setTimeout(() => { movingPart.classList.remove('flipped'); }, 300);
     }
   });
 }
