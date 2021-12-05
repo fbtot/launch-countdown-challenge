@@ -15,11 +15,6 @@ const countdownEl = document.getElementById('countdown');
 const containerDaysEl = document.getElementById('containerDays');
 
 /* =================================== § SUPPORT FUNCTIONS === */
-// function changeAttribute(element, attribute, change) {
-//   const selectedElements = element.querySelectorAll(`[${attribute}]`);
-//   Array.from(selectedElements).forEach((el) => el.setAttribute(attribute, change));
-// }
-
 function changeAttribute(element, attribute, change) {
   const selectedElements = element.querySelectorAll(`[${attribute}]`);
   const movingPart = element.getElementsByClassName('countdown__fg-flips-container')[0];
