@@ -205,10 +205,38 @@ input[type="submit"] {
 :root {
   --animation-duration: 0.3s;
   --countdown-border-radius: 0.5rem;
+  --darker-flip: brightness(0.8);
 }
 @keyframes flip {
+  from {
+    transform: rotateX(0deg);
+  }
   to {
     transform: rotateX(-180deg);
+  }
+}
+
+@keyframes flip-reflection {
+  0% {
+    filter: brightness(1);
+  }
+
+  60% {
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes flip-shadow {
+  0% {
+    filter: brightness(1);
+  }
+
+  40% {
+    filter: brightness(1);
+  }
+
+  100% {
+    filter: brightness(0.2);
   }
 }
 
@@ -221,6 +249,7 @@ input[type="submit"] {
   perspective-origin: center center;
 }
 
+/* =================================== § FLIP CONTAINERS === */
 .countdown__flip-container {
   position: relative;
   height: 8rem;
@@ -241,11 +270,12 @@ input[type="submit"] {
   transform-style: preserve-3d;
   transform-origin: bottom center;
 
-  &.flipped {
+  .flipped & {
     animation: flip var(--animation-duration) linear;
   }
 }
 
+/* =================================== § FLIPS === */
 .flip {
   position: relative;
   height: 4rem;
@@ -265,6 +295,13 @@ input[type="submit"] {
   }
 }
 
+%border-radius-top {
+  border-radius: var(--countdown-border-radius) var(--countdown-border-radius) 0 0;
+}
+%border-radius-bottom {
+  border-radius: 0 0 var(--countdown-border-radius) var(--countdown-border-radius);
+}
+
 .countdown__fg-flip__front,
 .countdown__fg-flip__back {
   position: absolute;
@@ -276,6 +313,8 @@ input[type="submit"] {
 }
 
 .countdown__fg-flip__front {
+  @extend %border-radius-top;
+  filter: var(--darker-flip);
   backface-visibility: hidden;
 
   &:before {
@@ -284,8 +323,12 @@ input[type="submit"] {
 }
 
 .countdown__fg-flip__back {
+  @extend %border-radius-bottom;
   transform: rotateX(180deg);
 
+  .flipped & {
+    animation: flip-reflection var(--animation-duration) linear;
+  }
   &:before {
     content: attr(data-next-day);
     bottom: 2rem;
@@ -293,12 +336,19 @@ input[type="submit"] {
 }
 
 .countdown__bg-flip__top {
+  @extend %border-radius-top;
+  filter: var(--darker-flip);
   &:before {
     content: attr(data-next-day);
   }
 }
 
 .countdown__bg-flip__bottom {
+  @extend %border-radius-bottom;
+
+  .flipped & {
+    animation: flip-shadow var(--animation-duration) linear;
+  }
   &:before {
     content: attr(data-current-day);
     bottom: 2rem;

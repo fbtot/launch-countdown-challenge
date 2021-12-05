@@ -21,11 +21,11 @@ function changeAttribute(element, attribute, change) {
 
   Array.from(selectedElements).forEach((el) => {
     if (el.getAttribute(attribute) !== addZero(change)) {
-      movingPart.classList.add('flipped');
+      element.classList.add('flipped');
       setTimeout(() => {
         el.setAttribute(attribute, change);
       }, animationDuration);
-      setTimeout(() => { movingPart.classList.remove('flipped'); }, animationDuration);
+      setTimeout(() => { element.classList.remove('flipped'); }, animationDuration);
     }
   });
 }
