@@ -240,6 +240,10 @@ input[type=submit] {
   --animation-duration: 0.3s;
   --countdown-border-radius: 0.5rem;
   --darker-flip: brightness(0.8);
+  --flip-height: 5rem;
+  --flip-container-height: calc(var(--flip-height) * 2);
+  --flip-font-size: 5rem;
+  --flip-text-offset: calc(var(--flip-font-size) / 2);
 }
 
 @-webkit-keyframes flip {
@@ -309,8 +313,10 @@ input[type=submit] {
 /* =================================== § FLIP CONTAINERS === */
 .countdown__flip-container {
   position: relative;
-  height: 8rem;
+  height: var(--flip-container-height);
   transform-style: preserve-3d;
+  box-shadow: 0 1rem 0 0 #17171d;
+  border-radius: var(--countdown-border-radius);
 }
 
 .countdown__bg-flips-container,
@@ -335,18 +341,18 @@ input[type=submit] {
 /* =================================== § FLIPS === */
 .flip {
   position: relative;
-  height: 4rem;
+  height: var(--flip-height);
   overflow: hidden;
   transform-origin: 100% 100%;
   background: var(--dark-desaturated-blue);
 }
 .flip:before, .flip:after {
-  font-size: 4rem;
-  line-height: 4rem;
+  font-size: var(--flip-font-size);
+  line-height: var(--flip-font-size);
   height: 100%;
   width: 100%;
   position: absolute;
-  bottom: -2rem;
+  bottom: calc(var(--flip-text-offset) * -1);
   left: 0;
 }
 
@@ -386,7 +392,7 @@ input[type=submit] {
 }
 .countdown__fg-flip__back:before {
   content: attr(data-next-day);
-  bottom: 2rem;
+  bottom: var(--flip-text-offset);
 }
 
 .countdown__bg-flip__top {
@@ -402,7 +408,7 @@ input[type=submit] {
 }
 .countdown__bg-flip__bottom:before {
   content: attr(data-current-day);
-  bottom: 2rem;
+  bottom: var(--flip-text-offset);
 }
 
 /*# sourceMappingURL=mainDist.css.map */
