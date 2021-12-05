@@ -254,7 +254,7 @@ input[type=submit] {
     transform: rotateX(-180deg);
   }
 }
-@keyframes flip-reflection {
+@keyframes flip-fg-reflection {
   0% {
     filter: brightness(1);
   }
@@ -262,7 +262,15 @@ input[type=submit] {
     filter: brightness(1.5);
   }
 }
-@keyframes flip-shadow {
+@keyframes flip-fg-shadow {
+  from {
+    filter: var(--darker-flip);
+  }
+  to {
+    filter: brightness(0.2);
+  }
+}
+@keyframes flip-bg-shadow {
   0% {
     filter: brightness(1);
   }
@@ -349,6 +357,9 @@ input[type=submit] {
   filter: var(--darker-flip);
   backface-visibility: hidden;
 }
+.flipped .countdown__fg-flip__front {
+  animation: flip-fg-shadow var(--animation-duration) linear;
+}
 .countdown__fg-flip__front:before {
   content: attr(data-current-day);
 }
@@ -357,7 +368,7 @@ input[type=submit] {
   transform: rotateX(180deg);
 }
 .flipped .countdown__fg-flip__back {
-  animation: flip-reflection var(--animation-duration) linear;
+  animation: flip-fg-reflection var(--animation-duration) linear;
 }
 .countdown__fg-flip__back:before {
   content: attr(data-next-day);
@@ -372,7 +383,7 @@ input[type=submit] {
 }
 
 .flipped .countdown__bg-flip__bottom {
-  animation: flip-shadow var(--animation-duration) linear;
+  animation: flip-bg-shadow var(--animation-duration) linear;
 }
 .countdown__bg-flip__bottom:before {
   content: attr(data-current-day);
