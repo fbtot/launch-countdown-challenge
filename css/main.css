@@ -238,6 +238,7 @@ input[type=submit] {
 /* ======================================== */
 :root {
   --animation-duration: 0.3s;
+  --countdown-border-radius: 0.5rem;
 }
 
 @keyframes flip {
@@ -260,30 +261,6 @@ input[type=submit] {
   transform-style: preserve-3d;
 }
 
-.flip {
-  position: relative;
-  height: 4rem;
-  overflow: hidden;
-  transform-origin: 100% 100%;
-  background: var(--dark-desaturated-blue);
-}
-.flip:before, .flip:after {
-  font-size: 4rem;
-  line-height: 4rem;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  bottom: -2rem;
-  left: 0;
-}
-.flip:before {
-  content: attr(data-current-day);
-}
-.flip:after {
-  display: none;
-  content: attr(data-next-day);
-}
-
 .countdown__bg-flips-container,
 .countdown__fg-flips-container {
   position: absolute;
@@ -300,6 +277,23 @@ input[type=submit] {
 }
 .countdown__fg-flips-container.flipped {
   animation: flip var(--animation-duration) linear;
+}
+
+.flip {
+  position: relative;
+  height: 4rem;
+  overflow: hidden;
+  transform-origin: 100% 100%;
+  background: var(--dark-desaturated-blue);
+}
+.flip:before, .flip:after {
+  font-size: 4rem;
+  line-height: 4rem;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
 }
 
 .countdown__fg-flip__front,
