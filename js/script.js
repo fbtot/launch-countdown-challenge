@@ -8,7 +8,7 @@ const day = 24 * hour;
 const animationDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--animation-duration')) * 1000;
 
 /* =================================== § PROJECT TIME VARS === */
-const deadline = new Date('December 6, 2021 08:05:00');
+const deadline = new Date('December 6, 2021 08:54:00');
 
 /* =================================== § DOM === */
 const containerDaysEl = document.getElementById('containerDays');
@@ -37,25 +37,28 @@ function changeAttribute(element, attribute, change) {
 }
 
 /* =================================== § COUNTDOWN FUNCTION === */
-function countdown() {
+function rawGap() {
   const now = new Date();
-  const rawGap = deadline - now > 0 ? deadline - now : 0;
-  console.log(rawGap);
-
+  return deadline - now > 0 ? deadline - now : 0;
+}
+function countdown() {
   /* ····················· § CURRENT ··· */
-  const gapDays = Math.floor(rawGap / day);
-  const gapHours = Math.floor((rawGap % day) / hour);
-  const gapMinutes = Math.floor((rawGap % hour) / minute);
-  const gapSeconds = Math.floor((rawGap % minute) / second);
+  const gapDays = Math.floor(rawGap() / day);
+  const gapHours = Math.floor((rawGap() % day) / hour);
+  const gapMinutes = Math.floor((rawGap() % hour) / minute);
+  const gapSeconds = Math.floor((rawGap() % minute) / second);
 
   /* ····················· § NEXT ··· */
-  const gapDaysNext = Math.floor((rawGap - day) / day);
-  const gapHoursNext = Math.floor(((rawGap - hour) % day) / (hour));
-  const gapMinutesNext = Math.floor(((rawGap - minute) % hour) / minute);
-  const gapSecondsNext = Math.floor(((rawGap - second) % minute) / second);
+  const gapDaysNext = Math.floor((rawGap() - day) / day);
+  const gapHoursNext = Math.floor(((rawGap() - hour) % day) / (hour));
+  const gapMinutesNext = Math.floor(((rawGap() - minute) % hour) / minute);
+  const gapSecondsNext = Math.floor(((rawGap() - second) % minute) / second);
 
   if (gapDays > 1000) {
     countdownError.classList.add('show');
+  } else if (rawGap() <= 0) {
+    // eslint-disable-next-line
+    clearInterval(interval);
   } else {
     changeAttribute(containerDaysEl, 'data-current-day', addZero(gapDays));
     changeAttribute(containerDaysEl, 'data-next-day', addZero(gapDaysNext));
@@ -68,4 +71,4 @@ function countdown() {
   }
 }
 
-setInterval(countdown, second);
+const interval = setInterval(countdown, second);
