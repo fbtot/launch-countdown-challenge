@@ -477,3 +477,17 @@ input[type="submit"] {
 #containerSeconds {
   @include attributes(second);
 }
+
+.countdown__error {
+  @include column-start-end(1, -1);
+  justify-content: center;
+  display: none;
+
+  &.show {
+    display: flex;
+  }
+  i {
+    font-size: 2em;
+    margin-right: 0.5rem;
+  }
+}

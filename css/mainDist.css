@@ -552,4 +552,18 @@ input[type=submit] {
   content: attr(data-current-second);
 }
 
+.countdown__error {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  justify-content: center;
+  display: none;
+}
+.countdown__error.show {
+  display: flex;
+}
+.countdown__error i {
+  font-size: 2em;
+  margin-right: 0.5rem;
+}
+
 /*# sourceMappingURL=mainDist.css.map */
