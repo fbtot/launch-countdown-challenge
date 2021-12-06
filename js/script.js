@@ -1,4 +1,5 @@
 // https://www.youtube.com/watch?v=Rib69h2DOxg
+// https://www.youtube.com/watch?v=V-Mcul5kS_Y
 
 /* =================================== § TIME VARS === */
 const second = 1000;
@@ -8,7 +9,7 @@ const day = 24 * hour;
 const animationDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--animation-duration')) * 1000;
 
 /* =================================== § PROJECT TIME VARS === */
-const deadline = new Date('December 6, 2021 08:54:00');
+const deadline = new Date('December 6, 2022 09:06:00');
 
 /* =================================== § DOM === */
 const containerDaysEl = document.getElementById('containerDays');
@@ -56,9 +57,6 @@ function countdown() {
 
   if (gapDays > 1000) {
     countdownError.classList.add('show');
-  } else if (rawGap() <= 0) {
-    // eslint-disable-next-line
-    clearInterval(interval);
   } else {
     changeAttribute(containerDaysEl, 'data-current-day', addZero(gapDays));
     changeAttribute(containerDaysEl, 'data-next-day', addZero(gapDaysNext));
@@ -68,6 +66,11 @@ function countdown() {
     changeAttribute(containerMinutesEl, 'data-next-minute', addZero(gapMinutesNext));
     changeAttribute(containerSecondsEl, 'data-current-second', addZero(gapSeconds));
     changeAttribute(containerSecondsEl, 'data-next-second', addZero(gapSecondsNext));
+  }
+
+  if (rawGap() <= 0) {
+    // eslint-disable-next-line
+    clearInterval(interval);
   }
 }
 
