@@ -41,6 +41,13 @@ html {
   font-size: var(--base-font-size);
   scroll-behavior: smooth;
 }
+@media screen and (max-width: 799px) {
+  html {
+    /* mixin mq */
+    font-size: 12px;
+    /* end mixin mq */
+  }
+}
 
 body {
   /* @mixin antialias */
@@ -319,11 +326,19 @@ input[type=submit] {
 }
 .countdown {
   display: grid;
-  gap: 2.4rem;
+  margin: 0 1rem;
+  gap: 5rem 2.4rem;
   grid-template-columns: repeat(4, 1fr);
   color: var(--soft-red);
   perspective: 500px;
   perspective-origin: center center;
+}
+@media screen and (max-width: 799px) {
+  .countdown {
+    /* mixin mq */
+    grid-template-columns: repeat(2, 1fr);
+    /* end mixin mq */
+  }
 }
 
 /* =================================== § FLIP CONTAINERS === */
