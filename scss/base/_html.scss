@@ -353,7 +353,6 @@ input[type="submit"] {
     bottom: var(--flip-text-offset);
   }
 }
-
 .countdown__bg-flip__top {
   @extend %border-radius-top;
   filter: var(--darker-flip);
@@ -422,4 +421,50 @@ input[type="submit"] {
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.4em;
+}
+
+/* =================================== § FLIP TEXT CONTENT === */
+@mixin attributes($timespan) {
+  &:before {
+    content: attr(data-current + "-" + $timespan);
+  }
+  .countdown__fg-flip__front {
+    &:before {
+      content: attr(data-current + "-" + $timespan);
+    }
+  }
+
+  .countdown__fg-flip__back {
+    &:before {
+      content: attr(data-next + "-" + $timespan);
+    }
+  }
+
+  .countdown__bg-flip__top {
+    &:before {
+      content: attr(data-next + "-" + $timespan);
+    }
+  }
+
+  .countdown__bg-flip__bottom {
+    &:before {
+      content: attr(data-current + "-" + $timespan);
+    }
+  }
+}
+
+#containerDays {
+  @include attributes(day);
+}
+
+#containerHours {
+  @include attributes(hour);
+}
+
+#containerMinutes {
+  @include attributes(minute);
+}
+
+#containerSeconds {
+  @include attributes(second);
 }

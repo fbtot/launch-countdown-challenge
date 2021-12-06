@@ -13,6 +13,9 @@ const deadline = new Date('December 8, 2021 00:00:00');
 /* =================================== § DOM === */
 const countdownEl = document.getElementById('countdown');
 const containerDaysEl = document.getElementById('containerDays');
+const containerHoursEl = document.getElementById('containerHours');
+const containerMinutesEl = document.getElementById('containerMinutes');
+const containerSecondsEl = document.getElementById('containerSeconds');
 
 /* =================================== § SUPPORT FUNCTIONS === */
 function changeAttribute(element, attribute, change) {
@@ -51,8 +54,14 @@ function countdown() {
   const gapMinutesNext = Math.floor(((rawGap - minute) % hour) / minute);
   const gapSecondsNext = Math.floor(((rawGap - second) % minute) / second);
 
-  changeAttribute(containerDaysEl, 'data-current-day', addZero(gapSeconds));
-  changeAttribute(containerDaysEl, 'data-next-day', addZero(gapSecondsNext));
+  changeAttribute(containerDaysEl, 'data-current-day', addZero(gapDays));
+  changeAttribute(containerDaysEl, 'data-next-day', addZero(gapDaysNext));
+  changeAttribute(containerHoursEl, 'data-current-hour', addZero(gapHours));
+  changeAttribute(containerHoursEl, 'data-next-hour', addZero(gapHoursNext));
+  changeAttribute(containerMinutesEl, 'data-current-minute', addZero(gapMinutes));
+  changeAttribute(containerMinutesEl, 'data-next-minute', addZero(gapMinutesNext));
+  changeAttribute(containerSecondsEl, 'data-current-second', addZero(gapSeconds));
+  changeAttribute(containerSecondsEl, 'data-next-second', addZero(gapSecondsNext));
 }
 
 countdown();

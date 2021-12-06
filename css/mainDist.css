@@ -472,4 +472,69 @@ input[type=submit] {
   letter-spacing: 0.4em;
 }
 
+/* =================================== § FLIP TEXT CONTENT === */
+#containerDays:before {
+  content: attr(data-current-day);
+}
+#containerDays .countdown__fg-flip__front:before {
+  content: attr(data-current-day);
+}
+#containerDays .countdown__fg-flip__back:before {
+  content: attr(data-next-day);
+}
+#containerDays .countdown__bg-flip__top:before {
+  content: attr(data-next-day);
+}
+#containerDays .countdown__bg-flip__bottom:before {
+  content: attr(data-current-day);
+}
+
+#containerHours:before {
+  content: attr(data-current-hour);
+}
+#containerHours .countdown__fg-flip__front:before {
+  content: attr(data-current-hour);
+}
+#containerHours .countdown__fg-flip__back:before {
+  content: attr(data-next-hour);
+}
+#containerHours .countdown__bg-flip__top:before {
+  content: attr(data-next-hour);
+}
+#containerHours .countdown__bg-flip__bottom:before {
+  content: attr(data-current-hour);
+}
+
+#containerMinutes:before {
+  content: attr(data-current-minute);
+}
+#containerMinutes .countdown__fg-flip__front:before {
+  content: attr(data-current-minute);
+}
+#containerMinutes .countdown__fg-flip__back:before {
+  content: attr(data-next-minute);
+}
+#containerMinutes .countdown__bg-flip__top:before {
+  content: attr(data-next-minute);
+}
+#containerMinutes .countdown__bg-flip__bottom:before {
+  content: attr(data-current-minute);
+}
+
+#containerSeconds:before {
+  content: attr(data-current-second);
+}
+#containerSeconds .countdown__fg-flip__front:before {
+  content: attr(data-current-second);
+}
+#containerSeconds .countdown__fg-flip__back:before {
+  content: attr(data-next-second);
+}
+#containerSeconds .countdown__bg-flip__top:before {
+  content: attr(data-next-second);
+}
+#containerSeconds .countdown__bg-flip__bottom:before {
+  content: attr(data-current-second);
+}
+
 /*# sourceMappingURL=mainDist.css.map */
