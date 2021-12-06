@@ -11,16 +11,18 @@ const animationDuration = parseFloat(getComputedStyle(document.documentElement).
 const deadline = new Date('December 8, 2021 00:00:00');
 
 /* =================================== § DOM === */
-const countdownEl = document.getElementById('countdown');
 const containerDaysEl = document.getElementById('containerDays');
 const containerHoursEl = document.getElementById('containerHours');
 const containerMinutesEl = document.getElementById('containerMinutes');
 const containerSecondsEl = document.getElementById('containerSeconds');
 
 /* =================================== § SUPPORT FUNCTIONS === */
+function addZero(n) {
+  return n.toString().length === 1 ? `0${n}` : n.toString();
+}
+
 function changeAttribute(element, attribute, change) {
   const selectedElements = element.querySelectorAll(`[${attribute}]`);
-  const movingPart = element.getElementsByClassName('countdown__fg-flips-container')[0];
 
   Array.from(selectedElements).forEach((el) => {
     if (el.getAttribute(attribute) !== addZero(change)) {
@@ -31,10 +33,6 @@ function changeAttribute(element, attribute, change) {
       setTimeout(() => { element.classList.remove('flipped'); }, animationDuration);
     }
   });
-}
-
-function addZero(n) {
-  return n.toString().length === 1 ? `0${n}` : n.toString();
 }
 
 /* =================================== § COUNTDOWN FUNCTION === */
