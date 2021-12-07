@@ -81,11 +81,6 @@ const interval = setInterval(countdown, second);
 /* ··········································· § FORM ··· */
 /* ======================================== */
 // eslint-disable-next-line
-if (Modernizr.inputtypes['datetime-local']) {
-  // supported
-  console.log('supported');
-} else {
-  // not-supported
-  console.log('not supported');
+if (!Modernizr.inputtypes['datetime-local']) {
   launchDateForm.style.display = 'none';
 }
