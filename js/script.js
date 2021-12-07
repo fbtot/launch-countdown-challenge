@@ -77,6 +77,10 @@ function countdown() {
 
 const interval = setInterval(countdown, second);
 
+/* ============================================ */
+/* ··········································· § FORM ··· */
+/* ======================================== */
+// eslint-disable-next-line
 if (Modernizr.inputtypes['datetime-local']) {
   // supported
   console.log('supported');
