@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -104,9 +104,13 @@
         <span id="countdownError" class="countdown__error"><i class='bx bxs-error-circle'></i>The day counter must be under 1000.</span>
       </div> <!-- end countdown -->
       
-      <form class="launchdate-form" action="#" method="get">
+      <!-- ============================================ -->
+      <!-- ··········································· § FORM ··· -->
+      <!-- ======================================== -->
+      
+      <form id="launchDateForm" class="launchdate-form" action="#" method="get">
 
-        <input class="launchdate-form__input" type="datetime-local" name="launch-date" id="lounchDate">
+        <input class="launchdate-form__input" type="datetime-local" name="launch-date" id="launchDate">
         <button class="launchdate-form__button">Set</button>
       </form>
 
@@ -129,6 +133,8 @@
         </nav>
       </footer>
     </main>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> -->
+    <script src="./js/modernizr-custom.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

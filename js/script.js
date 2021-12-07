@@ -17,6 +17,7 @@ const containerHoursEl = document.getElementById('containerHours');
 const containerMinutesEl = document.getElementById('containerMinutes');
 const containerSecondsEl = document.getElementById('containerSeconds');
 const countdownError = document.getElementById('countdownError');
+const launchDateForm = document.getElementById('launchDateForm');
 
 /* =================================== § SUPPORT FUNCTIONS === */
 function addZero(n) {
@@ -75,3 +76,12 @@ function countdown() {
 }
 
 const interval = setInterval(countdown, second);
+
+if (Modernizr.inputtypes['datetime-local']) {
+  // supported
+  console.log('supported');
+} else {
+  // not-supported
+  console.log('not supported');
+  launchDateForm.style.display = 'none';
+}
