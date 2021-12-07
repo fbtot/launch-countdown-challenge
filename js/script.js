@@ -9,7 +9,6 @@ const day = 24 * hour;
 const animationDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--animation-duration')) * 1000;
 
 /* =================================== § PROJECT TIME VARS === */
-const deadline = new Date('December 6, 2022 09:06:00');
 
 /* =================================== § DOM === */
 const containerDaysEl = document.getElementById('containerDays');
@@ -18,6 +17,13 @@ const containerMinutesEl = document.getElementById('containerMinutes');
 const containerSecondsEl = document.getElementById('containerSeconds');
 const countdownError = document.getElementById('countdownError');
 const launchDateForm = document.getElementById('launchDateForm');
+const launchDateInput = document.getElementById('launchDateInput');
+const resetButton = document.getElementById('resetButton');
+const setButton = document.getElementById('setButton');
+
+const defaultDate = '2022-11-09T09:06:00';
+let date = defaultDate;
+let deadline = new Date(date);
 
 /* =================================== § SUPPORT FUNCTIONS === */
 function addZero(n) {
@@ -84,3 +90,18 @@ const interval = setInterval(countdown, second);
 if (!Modernizr.inputtypes['datetime-local']) {
   launchDateForm.style.display = 'none';
 }
+
+launchDateInput.value = date;
+
+setButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  date = launchDateInput.value;
+  deadline = new Date(date);
+});
+
+resetButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  date = defaultDate;
+  deadline = new Date(date);
+  launchDateInput.value = date;
+});
