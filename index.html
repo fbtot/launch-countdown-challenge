@@ -12,7 +12,7 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
 
     <!-- ICONS -->
@@ -112,11 +112,16 @@
 
         <label class="launchdate-form__label" for="launchDate">Set the date and time:</label>
           <input class="launchdate-form__input" type="datetime-local" name="launch-datetime" id="launchDateInput">
-          <button class="launchdate-form__button" id="launchDateButton">Set</button>
-          <button class="launchdate-form__button" id="launchDateButton">Reset</button>
+          <button class="launchdate-form__button" id="setButton">Set</button>
+          <button class="launchdate-form__button" id="resetButton">Reset</button>
 
       </form>
-
+      <div class="faq">
+        <div><i id="faqIcon" class='faq__icon bx bxs-help-circle'></i></div>
+        <div id="faqMessage" class="faq__message">
+          <p>The default value is the date of the next full moon (data from <strong><a href="#">here</a></strong>). You can set your own date, as long aas your browser supports that feature.</p>
+        </div>
+      </div>
       <!-- ============================================ -->
       <!-- ··········································· § FOOTER ··· -->
       <!-- ======================================== -->

@@ -68,6 +68,7 @@ body {
   line-height: 1.6em;
   font-family: var(--body-font-family);
   color: var(--text-color);
+  font-weight: bold;
   background: url(../images/pattern-hills.svg) center bottom repeat-x, url(../images/bg-stars.svg) top left, linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
   background-size: contain, auto;
 }
@@ -106,7 +107,6 @@ h1 {
   color: white;
   letter-spacing: 0.39em;
   font-size: 1.5rem;
-  font-weight: normal;
   line-height: 1.2em;
 }
 @media screen and (max-width: 799px) {
@@ -142,7 +142,7 @@ h6 {
 }
 
 a {
-  color: var(--accent-color);
+  color: var(--soft-red);
 }
 
 dt {
@@ -220,6 +220,7 @@ input[type=submit] {
   background: var(--dark-desaturated-blue);
   box-shadow: 0 0.5rem 0 #17171d;
   color: var(--soft-red);
+  font-weight: bold;
 }
 
 button:hover {
@@ -589,6 +590,40 @@ button:hover {
     margin: 0 auto 1.5rem;
     /* end mixin mq */
   }
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.faq__icon {
+  cursor: pointer;
+  font-size: 3rem;
+  color: var(--soft-red);
+  display: block;
+}
+
+.faq__message {
+  margin: 1rem auto 2rem;
+  padding: 0rem;
+  background: var(--dark-desaturated-blue);
+  color: var(--grayish-blue);
+  line-height: 1.5em;
+  box-shadow: 0 0.5rem 0 #17171d;
+  border-radius: 0.5rem;
+  height: 0px;
+  overflow: hidden;
+  padding: 1rem;
+  opacity: 0;
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+.faq__message.show-message {
+  height: fit-content;
+  opacity: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

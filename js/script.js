@@ -20,6 +20,8 @@ const launchDateForm = document.getElementById('launchDateForm');
 const launchDateInput = document.getElementById('launchDateInput');
 const resetButton = document.getElementById('resetButton');
 const setButton = document.getElementById('setButton');
+const faqIcon = document.getElementById('faqIcon');
+const faqMessage = document.getElementById('faqMessage');
 
 const defaultDate = '2022-11-09T09:06:00';
 let date = defaultDate;
@@ -104,4 +106,8 @@ resetButton.addEventListener('click', (e) => {
   date = defaultDate;
   deadline = new Date(date);
   launchDateInput.value = date;
+});
+
+faqIcon.addEventListener('click', () => {
+  faqMessage.classList.toggle('show-message');
 });
