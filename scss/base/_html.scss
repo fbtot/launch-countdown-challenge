@@ -538,6 +538,10 @@ button {
   }
 }
 
+.launchdate-form__label {
+  display: none;
+}
+
 .launchdate-form__input {
   @include mq($desktop-width, down) {
     margin-bottom: 1.5rem;
@@ -546,6 +550,6 @@ button {
 
 .launchdate-form__button {
   @include mq($desktop-width, down) {
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
   }
 }

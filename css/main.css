@@ -571,6 +571,10 @@ button:hover {
   }
 }
 
+.launchdate-form__label {
+  display: none;
+}
+
 @media screen and (max-width: 799px) {
   .launchdate-form__input {
     /* mixin mq */
@@ -582,7 +586,7 @@ button:hover {
 @media screen and (max-width: 799px) {
   .launchdate-form__button {
     /* mixin mq */
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
     /* end mixin mq */
   }
 }
