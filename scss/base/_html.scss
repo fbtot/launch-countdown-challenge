@@ -15,7 +15,18 @@ html {
   }
 }
 
+@keyframes stars {
+  from {
+    background-position: bottom center, top left;
+  }
+
+  to {
+    background-position: bottom center, bottom right;
+  }
+}
+
 body {
+  animation: stars 500s linear infinite;
   @include antialias;
   min-width: 100vw;
   min-height: 100vh;
@@ -25,9 +36,9 @@ body {
   // prettier-ignore
   background: 
     url(../images/pattern-hills.svg) center bottom repeat-x ,
-    url(../images/bg-stars.svg) 0 0,
+    url(../images/bg-stars.svg) top left,
     linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
-  background-size: contain, auto, auto;
+  background-size: contain, auto;
 
   @include mq($desktop-width, down) {
     background-position: right -150px bottom;

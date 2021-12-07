@@ -49,7 +49,16 @@ html {
   }
 }
 
+@keyframes stars {
+  from {
+    background-position: bottom center, top left;
+  }
+  to {
+    background-position: bottom center, bottom right;
+  }
+}
 body {
+  animation: stars 500s linear infinite;
   /* @mixin antialias */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,8 +68,8 @@ body {
   line-height: 1.6em;
   font-family: var(--body-font-family);
   color: var(--text-color);
-  background: url(../images/pattern-hills.svg) center bottom repeat-x, url(../images/bg-stars.svg) 0 0, linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
-  background-size: contain, auto, auto;
+  background: url(../images/pattern-hills.svg) center bottom repeat-x, url(../images/bg-stars.svg) top left, linear-gradient(var(--very-dark-blue2) 0, var(--very-dark-blue) 100%) 100% 100%;
+  background-size: contain, auto;
 }
 @media screen and (max-width: 799px) {
   body {
