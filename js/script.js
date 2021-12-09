@@ -8,7 +8,17 @@ const hour = 60 * minute;
 const day = 24 * hour;
 const animationDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--animation-duration')) * 1000;
 
-/* =================================== § PROJECT TIME VARS === */
+/* =================================== § MOON DATA === */
+async function fetchMoonData() {
+  const response = await fetch('https://craigchamberlain.github.io/moon-data/api/moon-phase-data/2021/index.json');
+  const moon = await response.json();
+
+  return moon;
+}
+
+fetchMoonData().then((moon) => {
+  console.log(moon.filter((el) => el.Phase === 2 && new Date(el.Date) >= new Date())[0]);
+});
 
 /* =================================== § DOM === */
 const containerDaysEl = document.getElementById('containerDays');
