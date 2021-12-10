@@ -8,18 +8,6 @@ const hour = 60 * minute;
 const day = 24 * hour;
 const animationDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--animation-duration')) * 1000;
 
-/* =================================== § MOON DATA === */
-async function fetchMoonData() {
-  const response = await fetch('https://craigchamberlain.github.io/moon-data/api/moon-phase-data/2021/index.json');
-  const moon = await response.json();
-
-  return moon;
-}
-
-fetchMoonData().then((moon) => {
-  console.log(moon.filter((el) => el.Phase === 2 && new Date(el.Date) >= new Date())[0]);
-});
-
 /* =================================== § DOM === */
 const containerDaysEl = document.getElementById('containerDays');
 const containerHoursEl = document.getElementById('containerHours');
@@ -33,9 +21,10 @@ const setButton = document.getElementById('setButton');
 const faqIcon = document.getElementById('faqIcon');
 const faqMessage = document.getElementById('faqMessage');
 
-const defaultDate = '2022-11-09T09:06:00';
-let date = defaultDate;
-let deadline = new Date(date);
+const defaultDate = new Date(new Date().getTime() + (day * 7)).toISOString().slice(0, -8);
+let nextFullMoonDate = '';
+const date = () => (nextFullMoonDate === '' ? defaultDate : nextFullMoonDate);
+let deadline = new Date(date());
 
 /* =================================== § SUPPORT FUNCTIONS === */
 function addZero(n) {
@@ -56,6 +45,29 @@ function changeAttribute(element, attribute, change) {
   });
 }
 
+/* =================================== § MOON DATA === */
+async function getNextFullMoon(year = new Date().getFullYear()) {
+  const response = fetch(`https://craigchamberlain.github.io/moon-data/api/moon-phase-data/${year}/index.json`);
+  const moon = await (await response).json();
+  const nextFullMoon = await moon.filter(
+    (el) => el.Phase === 2 && new Date(el.Date) >= new Date(),
+  )[0];
+
+  console.log(nextFullMoon);
+  if (nextFullMoon) return nextFullMoon.Date;
+  // eslint-disable-next-line
+  return getNextFullMoon(year += 1);
+}
+
+getNextFullMoon().then((moon) => {
+  nextFullMoonDate = moon;
+  deadline = new Date(date());
+  launchDateInput.value = date();
+  const interval = setInterval(countdown, second);
+}).catch((e) => {
+  console.log(e);
+  const interval = setInterval(countdown, second);
+});
 /* =================================== § COUNTDOWN FUNCTION === */
 function rawGap() {
   const now = new Date();
@@ -92,9 +104,6 @@ function countdown() {
     clearInterval(interval);
   }
 }
-
-const interval = setInterval(countdown, second);
-
 /* ============================================ */
 /* ··········································· § FORM ··· */
 /* ======================================== */
@@ -103,19 +112,17 @@ if (!Modernizr.inputtypes['datetime-local']) {
   launchDateForm.style.display = 'none';
 }
 
-launchDateInput.value = date;
+launchDateInput.value = new Date(date()).toISOString().slice(0, -8);
 
 setButton.addEventListener('click', (e) => {
   e.preventDefault();
-  date = launchDateInput.value;
-  deadline = new Date(date);
+  deadline = new Date(launchDateInput.value);
 });
 
 resetButton.addEventListener('click', (e) => {
   e.preventDefault();
-  date = defaultDate;
-  deadline = new Date(date);
-  launchDateInput.value = date;
+  deadline = new Date(date());
+  launchDateInput.value = date();
 });
 
 faqIcon.addEventListener('click', () => {
