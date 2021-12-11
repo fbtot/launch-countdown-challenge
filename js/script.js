@@ -45,29 +45,6 @@ function changeAttribute(element, attribute, change) {
   });
 }
 
-/* =================================== § MOON DATA === */
-async function getNextFullMoon(year = new Date().getFullYear()) {
-  const response = fetch(`https://craigchamberlain.github.io/moon-data/api/moon-phase-data/${year}/index.json`);
-  const moon = await (await response).json();
-  const nextFullMoon = await moon.filter(
-    (el) => el.Phase === 2 && new Date(el.Date) >= new Date(),
-  )[0];
-
-  console.log(nextFullMoon);
-  if (nextFullMoon) return nextFullMoon.Date;
-  // eslint-disable-next-line
-  return getNextFullMoon(year += 1);
-}
-
-getNextFullMoon().then((moon) => {
-  nextFullMoonDate = moon;
-  deadline = new Date(date());
-  launchDateInput.value = date();
-  const interval = setInterval(countdown, second);
-}).catch((e) => {
-  console.log(e);
-  const interval = setInterval(countdown, second);
-});
 /* =================================== § COUNTDOWN FUNCTION === */
 function rawGap() {
   const now = new Date();
@@ -100,10 +77,33 @@ function countdown() {
   }
 
   if (rawGap() <= 0) {
+    console.log('stop');
     // eslint-disable-next-line
     clearInterval(interval);
   }
 }
+const interval = setInterval(countdown, second);
+
+/* =================================== § MOON DATA === */
+async function getNextFullMoon(year = new Date().getFullYear()) {
+  const response = fetch(`https://craigchamberlain.github.io/moon-data/api/moon-phase-data/${year}/index.json`);
+  const moon = await (await response).json();
+  const nextFullMoon = await moon.filter(
+    (el) => el.Phase === 2 && new Date(el.Date) >= new Date(),
+  )[0];
+
+  if (nextFullMoon) return nextFullMoon.Date;
+  // eslint-disable-next-line
+  return getNextFullMoon(year += 1);
+}
+
+getNextFullMoon().then((moon) => {
+  nextFullMoonDate = moon;
+  deadline = new Date(date());
+  launchDateInput.value = date();
+  return interval;
+}).catch(() => interval);
+
 /* ============================================ */
 /* ··········································· § FORM ··· */
 /* ======================================== */
