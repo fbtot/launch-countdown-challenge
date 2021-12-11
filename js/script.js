@@ -25,12 +25,21 @@ const setButton = document.getElementById('setButton');
 const faqIcon = document.getElementById('faqIcon');
 const faqMessage = document.getElementById('faqMessage');
 
+/* ============================================ */
+/* ··········································· § DATE VARS ··· */
+/* ======================================== */
+
+// Fallback in case fetching goes wrtong
+const timeZone = -(new Date().getTimezoneOffset()) * minute;
 const defaultDate = new Date(new Date().getTime() + (day * 7)).toISOString().slice(0, -8);
 let nextFullMoonDate = '';
-const date = () => (nextFullMoonDate === '' ? defaultDate : nextFullMoonDate);
-let deadline = new Date(date());
 
-/* =================================== § SUPPORT FUNCTIONS === */
+const date = () => (nextFullMoonDate === '' ? defaultDate : nextFullMoonDate);
+let deadline = new Date(new Date(date()).getTime() + timeZone);
+
+/* ============================================ */
+/* ··········································· § SUPPORT FUNCTIONS ··· */
+/* ======================================== */
 function addZero(n) {
   return n.toString().length === 1 ? `0${n}` : n.toString();
 }
