@@ -29,10 +29,13 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- Modernizr
 
 ### What I learned
 
-I started to grapple with the time methods in Javascript. I deepened my knowledge of css animations.
+- I started to grapple with the time methods in Javascript.
+- I deepened my knowledge of css animations.
+- I used modernizr to detect a feature.
 
 ### Useful resources
 
