@@ -149,7 +149,7 @@ if (!Modernizr.inputtypes['datetime-local']) {
   launchDateForm.style.display = 'none';
 }
 
-launchDateInput.value = new Date(date()).toISOString().slice(0, -8);
+launchDateInput.value = date();
 
 setButton.addEventListener('click', (e) => {
   e.preventDefault();
