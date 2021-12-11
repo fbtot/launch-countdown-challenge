@@ -679,4 +679,9 @@ button:hover {
   opacity: 100%;
 }
 
+.no-datetime-support .faq__message__datetime,
+.no-datetime-support .launchdate-form__button {
+  display: none;
+}
+
 /*# sourceMappingURL=mainDist.css.map */

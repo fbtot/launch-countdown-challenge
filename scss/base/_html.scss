@@ -592,3 +592,10 @@ button {
     opacity: 100%;
   }
 }
+
+.no-datetime-support {
+  .faq__message__datetime,
+  .launchdate-form__button {
+    display: none;
+  }
+}

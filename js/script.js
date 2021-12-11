@@ -146,7 +146,7 @@ getNextFullMoon().then((moon) => {
 /* ======================================== */
 // eslint-disable-next-line
 if (!Modernizr.inputtypes['datetime-local']) {
-  launchDateForm.style.display = 'none';
+  document.getElementsByTagName('html')[0].classList.add('no-datetime-support');
 }
 
 launchDateInput.value = date();
